@@ -9,8 +9,8 @@ import pygame
 import random
 from highscores import *
 
-SCREEN_HEIGHT = 768
-SCREEN_WIDTH = 1360
+SCREEN_HEIGHT = 1080
+SCREEN_WIDTH = 1920
 
 YELLOW = (255,255,  0)
 BLACK = (  0,  0,  0)
@@ -296,7 +296,7 @@ def main():
 
 				elif self.coin_dropped == True:
 
-					self.image = pygame.image.load("Coin.png")
+					self.image = pygame.image.load("coin.png")
 
 				self.image.set_colorkey(BLACK)
 
@@ -882,11 +882,11 @@ def main():
 			self.big_purple_cursor_pic = Picture("big_purple_cursor.png")
 			self.big_yellow_cursor_pic = Picture("big_yellow_cursor.png")
 			self.heart_pic = Picture("heart.png")
-			self.coin_pic = Picture("Coin.png")
-			self.coin_pic2 = Picture("Coin.png")
-			self.speed_coin = Picture("Coin.png")
-			self.life_coin = Picture("Coin.png")
-			self.ammo_coin = Picture("Coin.png")
+			self.coin_pic = Picture("coin.png")
+			self.coin_pic2 = Picture("coin.png")
+			self.speed_coin = Picture("coin.png")
+			self.life_coin = Picture("coin.png")
+			self.ammo_coin = Picture("coin.png")
 
 			self.player_select_arrow = Picture("selection_arrow.png")
 			self.bullet_select_arrow = Picture("selection_arrow.png")

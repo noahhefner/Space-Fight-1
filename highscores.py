@@ -6,7 +6,7 @@ def get_highscores():
   # Pulls the numbers from the txt file and returns a list of int's
 
   thelist = []
-  high_score_file = open("highscore_numbers.txt", "r")
+  high_score_file = open("/home/noahhefner/Git/Space-Fight-1/highscore_numbers.txt", "r")
 
   for line in high_score_file:
 
@@ -20,7 +20,7 @@ def get_highscores():
 def get_names():
 
     thelist = []
-    name_file = open("highscore_names.txt", "r")
+    name_file = open("/home/noahhefner/Git/Space-Fight-1/highscore_names.txt", "r")
 
     for line in name_file:
 
