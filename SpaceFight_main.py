@@ -828,8 +828,8 @@ def main():
 
 			menu_font_size = int(round(SCREEN_HEIGHT / 13.5))
 			game_font_size = int(round(SCREEN_HEIGHT / 17.5))
-			self.font = pygame.font.SysFont('04B_30_', menu_font_size, False, False)
-			self.small_font = pygame.font.SysFont('04B_30_', game_font_size, False, False)
+			self.font = pygame.font.SysFont('04B', menu_font_size, False, False)
+			self.small_font = pygame.font.SysFont('04B', game_font_size, False, False)
 			self.universal_spacing_gap = 10
 
 			self.settings_screen_items = pygame.sprite.LayeredUpdates([pygame.sprite.Group()])
