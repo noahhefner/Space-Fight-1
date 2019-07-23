@@ -9,8 +9,8 @@ import pygame
 import random
 from highscores import *
 
-SCREEN_HEIGHT = 1080
-SCREEN_WIDTH = 1920
+SCREEN_HEIGHT = 768
+SCREEN_WIDTH = 1360
 
 YELLOW = (255,255,  0)
 BLACK = (  0,  0,  0)
@@ -141,7 +141,7 @@ def main():
 			frame (int): Counter for number of frames in explosion.
 			exp_num (int): Counter for the explosion image list.
 
-			heart_drop (int): Random value for heart carrier.
+			heartdrop (int): Random value for heart carrier.
 			ammo_drop (int): Random value for ammo carrier.
 			freeze_drop (int): Random value for freeze carrier.
 
@@ -153,15 +153,15 @@ def main():
 
 			dropped_frames (int): Number of frames the alien has been dead for.
 			lives (int): NUmber of lives the alien has (corresponds to image.)
-			speed_multiplier (int): Multiply by to velx and vely to increase speed of approach.
+			speed_multiplier (int): Multiplys to velx and vely to increase speed of approach.
 
 		"""
 
 		def __init__ (self):
 
-			super(Alien, self).__init__()
+			super(Alien,self).__init__()
 
-			self.image_string = "Alien.png"
+			self.image_string  = "Alien.png"
 			self.explode_sound = pygame.mixer.Sound("explosion.ogg")
 			self.image = pygame.image.load(self.image_string).convert()
 			self.image.set_colorkey(BLACK)
@@ -203,7 +203,7 @@ def main():
 			self.frame = 0
 			self.exp_num = 0
 
-			self.heart_drop = random.randrange(0,40)
+			self.heartdrop = random.randrange(0,40)
 			self.ammo_drop = random.randrange(5,16)
 			self.freeze_drop = random.randrange(0,30)
 			self.coin_drop = random.randrange(10,20)
@@ -252,7 +252,7 @@ def main():
 					self.heart_dropped  = False
 					self.coin_dropped = False
 					self.freeze_drop = 0
-					self.heart_drop = 0
+					self.heartdrop = 0
 					self.coin_drop = 0
 
 				elif self.heart_dropped == True:
@@ -270,7 +270,7 @@ def main():
 					self.ammo_dropped = False
 					self.coin_dropped = False
 					self.ammo_drop = 0
-					self.heart_drop = 0
+					self.heartdrop = 0
 					self.coin_drop = 0
 
 				elif self.coin_dropped == True:
@@ -279,7 +279,7 @@ def main():
 					self.ammo_dropped = False
 					self.freeze_dropped = False
 					self.ammo_drop = 0
-					self.heart_drop = 0
+					self.heartdrop = 0
 					self.freeze_drop = 0
 
 				if self.ammo_dropped == True:
@@ -296,7 +296,7 @@ def main():
 
 				elif self.coin_dropped == True:
 
-					self.image = pygame.image.load("coin.png")
+					self.image = pygame.image.load("Coin.png")
 
 				self.image.set_colorkey(BLACK)
 
@@ -306,7 +306,7 @@ def main():
 
 					self.exploding = True
 					self.freeze_drop = 0
-					self.heart_drop = 0
+					self.heartdrop = 0
 					self.ammo_drop = 0
 					self.coin_drop = 0
 					self.exp_num = 0
@@ -325,7 +325,7 @@ def main():
 					if self.heart_dropped == True:
 
 						game.player.lives += 1
-						self.heart_drop = 0
+						self.heartdrop = 0
 
 					if self.freeze_dropped == True:
 
@@ -395,7 +395,7 @@ def main():
 
 					self.explode_sound.play()
 
-					self.heart_drop = 0
+					self.heartdrop = 0
 					self.ammo_drop = 0
 					self.freeze_drop = 0
 					self.coin_drop = 0
@@ -418,7 +418,7 @@ def main():
 
 			"""
 
-			if self.heart_drop == 15:
+			if self.heartdrop == 15:
 
 				self.heart_dropped = True
 				self.speed_multiplier *= 1.05
@@ -438,7 +438,7 @@ def main():
 				self.speed_multiplier *= 1.05
 				self.coin_dropped = True
 
-			if self.heart_drop != 15 and self.ammo_drop != 15 and \
+			if self.heartdrop != 15 and self.ammo_drop != 15 and \
 			self.freeze_drop != 15 and self.coin_drop != 15:
 
 				lr = random.randrange(0,2)
@@ -479,13 +479,13 @@ def main():
 
 				self.freeze_dropped = False
 				self.dropped_frames = 0
-				self.heart_dropped = False
+				self.heart_dropped  = False
 				self.ammo_dropped = False
 				self.coin_dropped = False
-				self.freeze_drop = random.randrange(0, 30)
-				self.heart_drop = random.randrange(0, 40)
-				self.ammo_drop = random.randrange(0, 20)
-				self.coin_drop = random.randrange(10, 20)
+				self.freeze_drop = random.randrange(0,30)
+				self.heartdrop = random.randrange(0,40)
+				self.ammo_drop = random.randrange(0,20)
+				self.coin_drop = random.randrange(10,20)
 				self.exploding = False
 				self.exp_num = 0
 				self.frame = 0
@@ -828,8 +828,8 @@ def main():
 
 			menu_font_size = int(round(SCREEN_HEIGHT / 13.5))
 			game_font_size = int(round(SCREEN_HEIGHT / 17.5))
-			self.font = pygame.font.SysFont('04B', menu_font_size, False, False)
-			self.small_font = pygame.font.SysFont('04B', game_font_size, False, False)
+			self.font = pygame.font.SysFont('04B_30_', menu_font_size, False, False)
+			self.small_font = pygame.font.SysFont('04B_30_', game_font_size, False, False)
 			self.universal_spacing_gap = 10
 
 			self.settings_screen_items = pygame.sprite.LayeredUpdates([pygame.sprite.Group()])
@@ -882,11 +882,11 @@ def main():
 			self.big_purple_cursor_pic = Picture("big_purple_cursor.png")
 			self.big_yellow_cursor_pic = Picture("big_yellow_cursor.png")
 			self.heart_pic = Picture("heart.png")
-			self.coin_pic = Picture("coin.png")
-			self.coin_pic2 = Picture("coin.png")
-			self.speed_coin = Picture("coin.png")
-			self.life_coin = Picture("coin.png")
-			self.ammo_coin = Picture("coin.png")
+			self.coin_pic = Picture("Coin.png")
+			self.coin_pic2 = Picture("Coin.png")
+			self.speed_coin = Picture("Coin.png")
+			self.life_coin = Picture("Coin.png")
+			self.ammo_coin = Picture("Coin.png")
 
 			self.player_select_arrow = Picture("selection_arrow.png")
 			self.bullet_select_arrow = Picture("selection_arrow.png")
